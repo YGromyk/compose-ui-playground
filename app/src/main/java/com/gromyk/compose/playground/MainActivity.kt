@@ -69,9 +69,9 @@ fun HomeScreen(defaultRouting: Screen) {
 
 @Composable
 private fun HomeScreen(onOpenDetails: (ItemData) -> Unit) {
-    val drawerState = rememberDrawerState(DrawerValue.Closed)
     Scaffold(
         drawerContent = {
+            val drawerState = rememberDrawerState(DrawerValue.Closed)
             ModalDrawerLayout(
                 drawerState = drawerState,
                 bodyContent = {},
@@ -89,7 +89,11 @@ private fun HomeScreen(onOpenDetails: (ItemData) -> Unit) {
         topBar = {
             TopAppBar(
                 navigationIcon = {
-                    IconButton(onClick = { drawerState.reverse() }) {
+                    IconButton(
+                        onClick = {
+                            // todo: open/close the drawer
+                        }
+                    ) {
                         Icon(Icons.Filled.Menu)
                     }
                 },
@@ -102,7 +106,7 @@ private fun HomeScreen(onOpenDetails: (ItemData) -> Unit) {
 
 fun DrawerState.reverse() {
     if (isClosed) {
-        open()
+        open {}
     } else {
         close()
     }
