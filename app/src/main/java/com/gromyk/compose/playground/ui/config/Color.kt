@@ -1,4 +1,4 @@
-package com.gromyk.compose.playground.ui
+package com.gromyk.compose.playground.ui.config
 
 import androidx.compose.ui.graphics.Color
 

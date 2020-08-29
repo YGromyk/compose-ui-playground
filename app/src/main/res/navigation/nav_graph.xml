@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeDest">
+
+    <fragment
+        android:id="@+id/homeDest"
+        android:name="com.gromyk.compose.playground.ui.config.HomeFragment">
+        <action
+            android:id="@+id/openDetails"
+            app:destination="@id/detailsDest" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailsDest"
+        android:name="com.gromyk.compose.playground.ui.config.DetailsFragment">
+        <argument
+            android:name="newsId"
+            app:argType="integer" />
+    </fragment>
+
+</navigation>
