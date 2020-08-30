@@ -31,8 +31,8 @@ fun Content(onOpenDetails: (ItemData) -> Unit) {
             Item(
                 ItemData(
                     it,
-                    "${it + 1}) A name",
-                    "${it + 1}) Some random description",
+                    "${it}) A name",
+                    "${it}) Some random description",
                 ),
                 onOpenDetails
             )
