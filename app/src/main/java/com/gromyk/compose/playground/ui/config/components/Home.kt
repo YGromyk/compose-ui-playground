@@ -20,39 +20,41 @@ import com.gromyk.compose.playground.data.ItemData
 
 @Composable
 fun HomeScreen(onOpenDetails: (ItemData) -> Unit) {
-    Scaffold(
-        drawerContent = {
-            val drawerState = rememberDrawerState(DrawerValue.Closed)
-            ModalDrawerLayout(
-                drawerState = drawerState,
-                bodyContent = {},
-                drawerContent = {
-                    Column(
-                        modifier = Modifier.fillMaxSize()
-                    ) {
-                        DrawerColumn("Column 1")
-                        DrawerColumn("Column 2")
-                        DrawerColumn("Column 3")
-                    }
-                }
-            )
-        },
-        topBar = {
-            TopAppBar(
-                navigationIcon = {
-                    IconButton(
-                        onClick = {
-                            // todo: open/close the drawer
+    ScreenWrapper {
+        Scaffold(
+            drawerContent = {
+                val drawerState = rememberDrawerState(DrawerValue.Closed)
+                ModalDrawerLayout(
+                    drawerState = drawerState,
+                    bodyContent = {},
+                    drawerContent = {
+                        Column(
+                            modifier = Modifier.fillMaxSize()
+                        ) {
+                            DrawerColumn("Column 1")
+                            DrawerColumn("Column 2")
+                            DrawerColumn("Column 3")
                         }
-                    ) {
-                        Icon(Icons.Filled.Menu)
                     }
-                },
-                title = { Text(textAlign = TextAlign.Center, text = "Home") }
-            )
-        },
-        bodyContent = { Content(onOpenDetails) }
-    )
+                )
+            },
+            topBar = {
+                TopAppBar(
+                    navigationIcon = {
+                        IconButton(
+                            onClick = {
+                                // todo: open/close the drawer
+                            }
+                        ) {
+                            Icon(Icons.Filled.Menu)
+                        }
+                    },
+                    title = { Text(textAlign = TextAlign.Center, text = "Home") }
+                )
+            },
+            bodyContent = { Content(onOpenDetails) }
+        )
+    }
 }
 
 @Composable
